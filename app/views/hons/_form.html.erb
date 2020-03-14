@@ -1,0 +1,21 @@
+<%= form_with(model: hon, local: true) do |form| %>
+  <% if hon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hon.errors.count, "error") %> prohibited this hon from being saved:</h2>
+
+      <ul>
+      <% hon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= simple_form_for(hon) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :author %>
+    <div class="actions">
+      <%= f.button :submit, :class => 'btn-primary' %>
+    </div>
+  <% end %>
+ <% end %>
